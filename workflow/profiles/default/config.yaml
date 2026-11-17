@@ -1,0 +1,4 @@
+software-deployment-method:
+  - conda
+cores: 4
+printshellcmds: true

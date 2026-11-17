@@ -1,0 +1,25 @@
+raw_data:
+  counts: "data/raw/counts.csv.gz"
+  metadata: "data/raw/metadata.csv.gz"
+
+filtering:
+  min_count: 10
+
+deseq2:
+  alpha: 0.05
+  lfc_threshold: 1.0
+  design: "~ site + plate"
+  plate_strategy: "stratified"
+  min_n_for_plate: 10
+
+subsampling:
+  sizes: [3, 5, 10, 20]
+  seeds: [1, 2, 3, 4, 5]
+
+enrichment:
+  subsets: ["full", "n3_s1"]
+  directions: ["up", "down"]
+  libraries:
+    go_bp: "GO_Biological_Process_2023"
+    reactome: "Reactome_2022"
+  top_terms: 10
