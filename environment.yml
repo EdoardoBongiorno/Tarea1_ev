@@ -1,0 +1,8 @@
+name: tarea_evaluable_01
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - snakemake>=8.0
+  - graphviz
