@@ -1,0 +1,17 @@
+configfile: "config/config.yaml"
+
+include: "rules/deseq2.smk"
+include: "rules/enrichment.smk"
+
+rule all:
+    input:
+        "results/full/samples.tsv",
+        "results/full/deseq2_results.tsv",
+        "results/full/de_genes.tsv",
+        "results/full/volcano_plot.png",
+        "results/full/ma_plot.png",
+        expand(
+            "results/full/enrichr_{direction}_{library}.tsv",
+            direction=config["enrichment"]["directions"],
+            library=list(config["enrichment"]["libraries"].keys()),
+        )
